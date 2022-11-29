@@ -1,1 +1,1 @@
-# diffusion_model
+# Denoising Diffusion Probabilistic Model for Natural Language
