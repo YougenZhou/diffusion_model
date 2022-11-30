@@ -12,4 +12,5 @@ class Transformer(nn.Module):
         group = ModelInterface.add_cmdline_args(parser)
         return group
 
-    pass
+    def __init__(self, args):
+        super(Transformer, self).__init__()

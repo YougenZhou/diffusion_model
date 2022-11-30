@@ -17,7 +17,15 @@ class EmpatheticDialogues(Dataset):
         return group
 
     def __init__(self, args, phase):
-        pass
+        tokenizer_cls = getattr(tokenizers, args.tokenizer)
+        self.tokenizer = tokenizer_cls(args)
+        self.vocab = self.tokenizer.vocab
+        self.pad_id = args.pad_id = self.tokenizer.pad_id
+        self.bos_id = args.bos_id = self.tokenizer.bos_id
+        self.eos_id = args.eos_id = self.tokenizer.eos_id
+        self.unk_id = args.unk_id = self.tokenizer.unk_id
+        self.mask_id = args.mask_id = self.tokenizer.mask_id
+        self.vocab_size = args.get('vocab_size', self.tokenizer.vocab_size)
 
     def __len__(self):
         pass
