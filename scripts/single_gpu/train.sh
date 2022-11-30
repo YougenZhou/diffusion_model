@@ -14,5 +14,7 @@ mkdir -p ${save_path}
 python \
   ./DDPM/scripts/train.py \
   --task ${task} \
+  --model ${model} \
+  --config_path ${config_path} \
   --vocab_path ${vocab_path} \
   --spm_model_file ${spm_model_file}

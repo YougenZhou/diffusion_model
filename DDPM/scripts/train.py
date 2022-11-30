@@ -18,6 +18,7 @@ def setup_args():
     parser.add_argument('--is_distributed', type=str2bool, default=False,
                         help='Whether to run distributed training.')
 
+    models.add_cmdline_args(parser)
     tasks.add_cmdline_args(parser)
 
     args = parse_args(parser)
@@ -48,11 +49,9 @@ def train(args):
     torch.manual_seed(args.random_seed + args.rank)
 
     task = tasks.create_task(args)
+    model = models.create_model(args)
 
-    ds = EmpatheticDialogues()
-
-    model_cls = getattr(models, args.model)
-    model = model_cls(args)
+    train_loader = task.get_data_loader(args, )
 
 
 if __name__ == '__main__':
