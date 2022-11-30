@@ -9,3 +9,10 @@ class ModelInterface(object):
 
     def __init__(self, args, model_cls):
         model = model_cls(args)
+        self.model = model
+        self.loss_scaler = None
+        self.optimizer = None
+
+    def train_step(self, inputs):
+        self.model.train()
+        metrics = self.model(inputs)

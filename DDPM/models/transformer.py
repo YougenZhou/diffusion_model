@@ -14,3 +14,7 @@ class Transformer(nn.Module):
 
     def __init__(self, args):
         super(Transformer, self).__init__()
+
+    def forward(self, inputs):
+        print(inputs)
+        exit()

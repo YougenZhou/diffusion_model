@@ -17,4 +17,6 @@ python \
   --model ${model} \
   --config_path ${config_path} \
   --vocab_path ${vocab_path} \
-  --spm_model_file ${spm_model_file}
+  --spm_model_file ${spm_model_file} \
+  --save_path ${save_path} \
+  --input_file ${input_file}

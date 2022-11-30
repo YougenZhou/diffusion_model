@@ -18,6 +18,15 @@ def setup_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--is_distributed', type=str2bool, default=False,
                         help='Whether to run distributed training.')
+    parser.add_argument('--save_path', type=str, default='output',
+                        help='The path where to save models.')
+    parser.add_argument('--input_file', type=str, required=True,
+                        help='The root path of data.')
+
+    parser.add_argument('--num_epochs', type=int, default=20,
+                        help='The number of times that the model will work through the entire training dataset.')
+    parser.add_argument('--eval_metric', type=str, default='loss',
+                        help='Keep the checkpoint with best evaluation metric.')
 
     models.add_cmdline_args(parser)
     tasks.add_cmdline_args(parser)

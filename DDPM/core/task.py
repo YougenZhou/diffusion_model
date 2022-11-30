@@ -10,8 +10,11 @@ class Task(ABC):
     def __init__(self, args):
         pass
 
+    def train_epoch(self, model, loader):
+        for step, inputs in enumerate(loader):
+            outputs = model.train_step(inputs)
+
     def get_data_loader(self, args, phase='train'):
         sampler = None
-        collate_fn = None
         dataset = EmpatheticDialogues(args=args, phase=phase)
-        return DataLoader(dataset, batch_size=args.batch_size, sampler=sampler, collate_fn=collate_fn)
+        return DataLoader(dataset, batch_size=args.batch_size)
