@@ -17,4 +17,4 @@ class Task(ABC):
     def get_data_loader(self, args, phase='train'):
         sampler = None
         dataset = EmpatheticDialogues(args=args, phase=phase)
-        return DataLoader(dataset, batch_size=args.batch_size)
+        return DataLoader(dataset, batch_size=args.batch_size, collate_fn=dataset.pad_batch_seq)
